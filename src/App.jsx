@@ -1,77 +1,163 @@
+import React, { useEffect, useState } from 'react';
 import './index.css';
+import { motion } from 'framer-motion';
 
 export default function App() {
+  const roles = [
+    'React Developer',
+    'Frontend Developer',
+    'Web Developer',
+    'UI Enthusiast',
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [roles.length]);
+
   return (
-    <div className="app">
+    <div>
+      {/* NAVBAR */}
       <nav className="navbar">
-        <h2>Jitendra Raut</h2>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold' }}>Jitendra Raut</h2>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+          <a href="#hero">Home</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
-      <section className="hero">
-        <h1>Jitendra Raut</h1>
-        <h3>BE IT Student • React Developer • Web Developer</h3>
-        <p>
-          I build modern, responsive web applications using React,
-          JavaScript, and modern frontend technologies.
-        </p>
+      {/* HERO SECTION */}
+      <section id="hero" className="hero">
+        <div className="hero-content">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="hero-text"
+          >
+            <p className="tag">Available for internships</p>
 
-        <div className="hero-buttons">
-          <a href="#projects" className="btn">
-            View Projects
-          </a>
-          <a href="/resume.pdf" className="btn btn-outline">
-            Download Resume
-          </a>
+            <h1>
+              Hi, I'm <span>Jitendra Raut</span>
+            </h1>
+
+            <h2 className="typing">{roles[roleIndex]}</h2>
+
+            <p>
+              I create beautiful, responsive, and high-performance web
+              applications using React, JavaScript, and modern frontend tools.
+            </p>
+
+            <div className="hero-buttons">
+              <a href="#projects" className="btn">
+                View Projects
+              </a>
+
+              <a href="/resume.pdf" className="btn btn-outline">
+                Download CV
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="hero-image"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <img src="/images/profile.jpg" alt="Jitendra Raut" />
+          </motion.div>
         </div>
       </section>
 
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I am a BE IT student passionate about frontend development,
-          React, JavaScript, and building clean user interfaces.
-        </p>
-      </section>
-
-      <section id="skills" className="section">
-        <h2>Skills</h2>
-
-        <div className="grid">
-          <div className="card">React</div>
-          <div className="card">JavaScript</div>
-          <div className="card">HTML5</div>
-          <div className="card">CSS3</div>
-          <div className="card">Git &amp; GitHub</div>
-          <div className="card">Cloudflare Pages</div>
-        </div>
-      </section>
-
+      {/* FEATURED PROJECTS SECTION */}
       <section id="projects" className="section">
-        <h2>Projects</h2>
+        <h2>Featured Projects</h2>
 
         <div className="grid">
-          <div className="project-card">
+          <motion.div
+            className="project-card"
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             <h3>Portfolio Website</h3>
-            <p>Personal portfolio built with React and deployed on Cloudflare Pages.</p>
-          </div>
 
-          <div className="project-card">
-            <h3>React Web App</h3>
-            <p>A responsive React application with modern UI and reusable components.</p>
-          </div>
+            <p>
+              Personal portfolio built with React and deployed on Cloudflare
+              Pages.
+            </p>
+
+            <p>
+              <strong>Tech:</strong> React, Vite, Cloudflare
+            </p>
+
+            <a
+              href="https://jitendraraut.com.np"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Live Demo
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="project-card"
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3>React Dashboard</h3>
+
+            <p>
+              Modern admin dashboard with charts, authentication, and
+              responsive layout.
+            </p>
+
+            <p>
+              <strong>Tech:</strong> React, JavaScript, CSS
+            </p>
+
+            <a
+              href="https://github.com/JITENDRARAUT"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </motion.div>
         </div>
       </section>
 
+      {/* CONTACT SECTION */}
       <section id="contact" className="section">
-        <h2>Contact</h2>
-        <p>Email: your-email@example.com</p>
-        <p>GitHub: github.com/JITENDRARAUT</p>
+        <h2>Let's Connect</h2>
+
+        <p>Email: jitendraraut903@gmail.com</p>
+
+        <div className="social-links">
+          <a
+            href="https://github.com/JITENDRARAUT"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jitendra-narayan-raut-6b630b256"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a href="mailto:jitendraraut903@gmail.com">Email</a>
+        </div>
       </section>
     </div>
   );
