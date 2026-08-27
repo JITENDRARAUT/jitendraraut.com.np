@@ -14,6 +14,13 @@ const certifications = [
     date: "3 Aug 2026",
     image: "/aws-cloud-foundations/aws-academy-graduate-cloud-operations-training-badg.png",
     link: "https://www.credly.com/badges/917e3c9a-6cfe-4bf6-b79e-538a35107c42/public_url"
+  },
+  {
+    title: "AWS Academy Graduate - Machine Learning Foundations",
+    issuer: "Amazon Web Services (AWS Academy)",
+    date: "27 Aug 2026",
+    image: "/aws-cloud-foundations/aws-academy-graduate-cloud-operations-training-badg.png",
+    link: "https://www.credly.com/badges/1a1b9c3e-62c4-483d-8a87-60a06bc3fc8f/public_url"
   }
 ];
 function Certifications() {
