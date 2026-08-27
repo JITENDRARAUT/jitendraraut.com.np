@@ -19,7 +19,7 @@ const certifications = [
     title: "AWS Academy Graduate - Machine Learning Foundations",
     issuer: "Amazon Web Services (AWS Academy)",
     date: "27 Aug 2026",
-    image: "/aws-cloud-foundations/aws-academy-graduate-machine-learning-foundations-t.png",
+    image: "/aws-cloud-foundations/aws-academy-graduate-machine-learning-foundations-training-badge.png",
     link: "https://www.credly.com/badges/1a1b9c3e-62c4-483d-8a87-60a06bc3fc8f/public_url"
   }
 ];
